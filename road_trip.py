@@ -55,4 +55,7 @@ def main():
   # Find shortest path
   short()
 
+def short():
+  #
+
 main()
