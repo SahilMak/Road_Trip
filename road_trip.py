@@ -32,5 +32,27 @@ def main():
   
   # Create list of directions
   direction = [False] * (length - 1)
+  
+  # Create dictionary from list of cities
+  num = {city[0]:0}
+  for x in range(1, length):
+    num[city[x]] = x
+  
+  # Add starting city to beginning and end of list
+  city.remove(start)
+  city.insert(0, start)
+  city.append(start)
+  
+  # Find length of initial path (if valid)
+  if city.index(order[0]) <= city.index(order[1]):
+    for x in range(length):
+      if distance[num[city[x]]][num[city[x + 1]]] == 'Inf':
+        shortest = math.inf
+      else:
+        shortest += int(distance[num[city[x]]][num[city[x + 1]]])
+    path = city[:]
+  
+  # Find shortest path
+  short()
 
 main()
