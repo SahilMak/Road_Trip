@@ -53,9 +53,13 @@ def main():
     path = city[:]
   
   # Find shortest path
-  short()
+  short(length)
 
-def short():
-  #
+def short(length):
+  for n in range(math.factorial(length)):
+    # Find largest mobile element
+    largest = 0
+    index = 0
+    swap = False
 
 main()
