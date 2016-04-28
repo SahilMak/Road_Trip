@@ -66,5 +66,10 @@ def short(length):
         largest = num[city[x]]
         index = x
         swap = direction[x - 1]
+      elif direction[x - 1] and x < (length - 1) and num[city[x]] > num[city[x + 1]] and num[city[x]] > largest:
+        largest = num[city[x]]
+        index = x
+        swap = direction[x - 1]
+    #
 
 main()
