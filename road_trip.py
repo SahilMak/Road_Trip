@@ -43,9 +43,6 @@ def main():
         shortest += int(distance[num[city[x]]][num[city[x + 1]]])
     path = city[:]
   # Find shortest path
-  short(length)
-
-def short(length):
   for n in range(math.factorial(length)):
     # Find largest mobile element
     largest = 0
@@ -67,5 +64,21 @@ def short(length):
     else:
       city[index], city[index + 1] = city[index + 1], city[index]
       direction[index - 1], direction[index] = direction[index], direction[index - 1]
+    # Reverse direction of largest non-mobile element
+    for x in range(length):
+      if num[city[x]] > largest:
+        direction[x - 1] = not(direction[x - 1])
+    # Find length of current path
+    total = 0
+    if city.index(order[0]) <= city.index(order[1]):
+      for x in range(length):
+        if distance[num[city[x]]][city[x + 1]] == 'Inf':
+          total = math.inf
+        else:
+          total += int(distance[num[city[x]]][num[city[x + 1]]])
+      # Determine if current path is shortest
+      if total <= shortest:
+        shortest = total
+        path = city[:]
 
 main()
