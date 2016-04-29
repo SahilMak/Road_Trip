@@ -80,5 +80,20 @@ def main():
       if total <= shortest:
         shortest = total
         path = city[:]
+  # Print shortest path
+  if shortest == math.inf:
+    print('No possible itinerary')
+  else:
+    print(path[0] + ' ' + distance[num[path[0]]][num[path[1]]] + ' ' + \
+          path[1] + ' ' + distance[num[path[1]]][num[path[2]]] + ' ' + \
+          path[2] + ' ' + distance[num[path[2]]][num[path[3]]] + ' ' + \
+          path[3] + ' ' + distance[num[path[3]]][num[path[4]]] + ' ' + \
+          path[4] + ' ' + distance[num[path[4]]][num[path[5]]] + ' ' + \
+          path[5] + ' ' + distance[num[path[5]]][num[path[6]]] + ' ' + \
+          path[6] + ' ' + distance[num[path[6]]][num[path[7]]] + ' ' + \
+          path[7] + ' ' + distance[num[path[7]]][num[path[8]]] + ' ' + \
+          path[8] + ' ' + distance[num[path[8]]][num[path[9]]] + ' ' + \
+          path[9] + ' ' + distance[num[path[9]]][num[path[10]]] + ' ' + path[10])
+    print(shortest)
 
 main()
