@@ -96,4 +96,10 @@ def main():
           path[9] + ' ' + distance[num[path[9]]][num[path[10]]] + ' ' + path[10])
     print(shortest)
 
+def gmaps(city):
+  maps = googlemaps.Client(key='API key')
+  for x in range(len(city) - 1):
+    distance = maps.distance_matrix(city[x], city[x + 1])
+    print(distance['rows'][0]['elements'][0]['distance']['value'])
+
 main()
