@@ -98,8 +98,12 @@ def main():
 
 def gmaps(city):
   maps = googlemaps.Client(key='API key')
-  for x in range(len(city) - 1):
-    distance = maps.distance_matrix(city[x], city[x + 1])
-    print(distance['rows'][0]['elements'][0]['distance']['value'])
+  distance = [([0] * len(city)) for x in range(len(city))]
+  for x in range(len(city)):
+    for y in range(len(city)):
+      if x == y:
+        distance[x][y] = math.inf
+      else:
+        distance[x][y] = maps.distance_matrix(city[x], city[x + 1])['rows'][0]['elements'][0]['distance']['value']
 
 main()
