@@ -20,8 +20,8 @@ def main():
     order = [start, start]
   else:
     order[1] = order[1].rstrip('\n')
-  # Store distances in list
-  distance = [line.split() for line in file]
+  # Get distances from Google Maps
+  distance = gmaps(city)
   # Close file
   file.close()
   # Create list of directions
@@ -105,5 +105,6 @@ def gmaps(city):
         distance[x][y] = math.inf
       else:
         distance[x][y] = maps.distance_matrix(city[x], city[x + 1])['rows'][0]['elements'][0]['distance']['value']
+  return distance
 
 main()
